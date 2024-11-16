@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,5 +32,9 @@ public class GameManager : MonoBehaviour
     {
         msgObject.SetActive(true);
         msgText.text = "Press R to reload the gun";
+    }
+    public void OnClickBack()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }
