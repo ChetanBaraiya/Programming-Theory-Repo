@@ -70,3 +70,18 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+.idea
+Library
+Logs
+obj
+Temp
+UserSettings
+*.sln
+*.vsconfig
+*.csproj
+njuka-gambling_mapping.txt
+.idea
+Builds
+*.csproj
