@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Image sliderFill;
     [SerializeField] private Gradient sliderFillColour;
         
-    // Start is called before the first frame update
     void Start()
     {
         sliderHealth.maxValue = health;
@@ -38,7 +37,6 @@ public class Enemy : MonoBehaviour
     private void UpdateSlider()
     {
         sliderHealth.value = health;
-        //change fill color
         sliderFill.color = sliderFillColour.Evaluate(sliderHealth.normalizedValue);
     }
 }

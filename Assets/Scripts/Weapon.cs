@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +13,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] private TMP_Text weapanNameText;
     [SerializeField] private Slider sliderWeapanBullets;
 
-    // Start is called before the first frame update
     void Start()
     {
         defaultBullets = bullets;
@@ -37,6 +34,7 @@ public class Weapon : MonoBehaviour
     {
         if (bullets == 0)
         {
+            GameManager.Instance.msgObject.SetActive(false);
             bullets = defaultBullets;
             UpdateSlider();
         }

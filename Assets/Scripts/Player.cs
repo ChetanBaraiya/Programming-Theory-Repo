@@ -10,27 +10,26 @@ public class Player : MonoBehaviour
 
     public Weapon activeWeapon;
     
-    // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonUp (0)) {
             PrepareWeapon ();
         }
         
-        if (Input.GetMouseButtonUp (1)) {
+        if (Input.GetKeyDown(KeyCode.R)) {
+           
             activeWeapon.RechargeWeapon();
         }
     }
 
     private void PrepareWeapon()
     {
-        Debug.Log("weapon fun call");
+        Debug.Log("weapon function call");
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay (Input.mousePosition);
 
@@ -43,7 +42,12 @@ public class Player : MonoBehaviour
                 targetEnemy = hit.collider.GetComponent <Enemy> ();
             }
         }
-        if (targetEnemy != null && activeWeapon.HasEnoughBullets())
+
+        if ( !activeWeapon.HasEnoughBullets())
+        {
+            GameManager.Instance.ShowRechargeMessage();
+        }
+        if (targetEnemy != null&& activeWeapon.HasEnoughBullets())
         {
             targetEnemy.TakeDamage(activeWeapon.damage);
         }
